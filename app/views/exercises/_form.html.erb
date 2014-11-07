@@ -17,11 +17,15 @@
   </div>
   <div class="field">
     <%= f.label :bodypart %><br>
-    <%= f.text_field :bodypart %>
+    <%= f.select :bodypart, Exercise::BODYPART_OPTIONS, prompt: "Select a bodypart" %>
   </div>
   <div class="field">
     <%= f.label :reps %><br>
     <%= f.number_field :reps %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
   </div>
   <div class="actions">
     <%= f.submit %>

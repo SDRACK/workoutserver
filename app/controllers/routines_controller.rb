@@ -9,6 +9,7 @@ class RoutinesController < ApplicationController
     @gen = Exercise.pluck(:move, :bodypart, :reps)
     @gen.shuffle!
 
+    #superfluous with list for bodypart - might need to come back if I do away with that *edit* seems I do need it, probs for the to_s
     @gen.each do |m, bp, r| 
       bp.to_s.capitalize!
     end
@@ -17,8 +18,12 @@ class RoutinesController < ApplicationController
       @gen.select { |a, b, c| b == bp }
     end
 
+    def quant(x = 1)
+      first(x)
+    end
+
    # @generator = [@generatorl = selector("legs").first, @generatorb = selector("back").first, @generators = selector("stomach").first, @generatorsh = selector("shoulders").first, @generatorc = selector("chest").first]
-   @generator = [selector("Legs").first, selector("Back").first, selector("Core").first, selector("Shoulders").first, selector("Chest").first]
+   @generator = [selector("Full").first, selector("Legs").first, selector("Back").first, selector("Core").first, selector("Shoulders").first, selector("Chest").first]
   @generator.shuffle!
 
 

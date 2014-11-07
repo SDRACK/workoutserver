@@ -3,6 +3,10 @@ class ExercisesController < ApplicationController
 
 #framework is working!! need a cleaner way to generate the workouts. also need to capitalize the input of exercises. finally, need to accept 
 #all bodypart params, not just those names currently
+#update - not ideal solution, though working dropdown to ensure params for bodypart work, though would rather the routines controller accepted
+#all BP types as params, I think.
+#would still like to implement an optional quantity param for routine to add, say, 3 core exercises to a workout.
+#would also like to add admin at some point for editing.
 
   # GET /exercises
   # GET /exercises.json
@@ -18,6 +22,10 @@ class ExercisesController < ApplicationController
   # GET /exercises/new
   def new
     @exercise = Exercise.new
+  end
+
+  def body_parts_array
+    Exercise.all.map {|ex| [ex.bodypart, ex.id] }
   end
 
   # GET /exercises/1/edit
@@ -76,7 +84,7 @@ class ExercisesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exercise_params
-      params.require(:exercise).permit(:move, :bodypart, :reps)
+      params.require(:exercise).permit(:move, :bodypart, :reps, :description)
     end
   
 end

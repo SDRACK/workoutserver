@@ -1,6 +1,6 @@
 <h1>Listing exercises</h1>
 <br>
-<%= link_to 'New Exercise', new_exercise_path %>
+<%= link_to 'New Exercise', new_exercise_path %><div> </div><%= link_to 'Generate Workout', routines_path %>
 <br>
 <table>
   <thead>
@@ -8,6 +8,7 @@
       <th>Move</th>
       <th>Bodypart</th>
       <th>Reps</th>
+      <th>Description</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><%= exercise.move.titleize %></td>
         <td><%= exercise.bodypart.titleize %></td>
         <td><%= exercise.reps %></td>
+        <% if exercise.description != nil %><td>-</td><% else %><td><%= exercise.description %></td><% end %> 
         <td><%= link_to 'Show', exercise %></td>
         <td><%= link_to 'Edit', edit_exercise_path(exercise) %></td>
         <td><%= link_to 'Destroy', exercise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -27,5 +29,5 @@
 </table>
 
 <br>
-<%= link_to 'Generate Workout', routines_path %>
+
 

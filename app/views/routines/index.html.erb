@@ -9,17 +9,22 @@
   <th><%= "Exercise" %></th>
   <th><%= "Body part" %></th>
   <th><%= "Reps" %></th>
+  <th><%= "Description" %></th>
   </tr>
-  <% @generator.each do |mv, bp, r|  %>
+  <% @generator.each do |mv, bp, r, d|  %>
   <tr>
-    <td> <%= mv %> </td> 
-    <td><i> <%= bp %> </i></td> 
+    <td> <%= mv.titleize %> </td> 
+    <td><i> <%= bp.titleize %> </i></td> 
     <td><i> <%= r %> </i></td> 
+    <% if d != nil %><td> <%= d.capitalize %> <td> <% end %>
    </tr>
   <% end %>
 </table>
 
-<%= link_to 'Index', exercises_path %>
+<%= link_to 'Refresh Workout', routines_path %><div></div><%= link_to 'Index', exercises_path %>
+
+<br>
+<%= @generator.inspect %>
 
 
     
