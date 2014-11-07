@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Move:</strong>
+  <%= @routine.move %>
+</p>
+
+<p>
+  <strong>Bodypart:</strong>
+  <%= @routine.bodypart %>
+</p>
+
+<p>
+  <strong>Reps:</strong>
+  <%= @routine.reps %>
+</p>
+
+<%= link_to 'Edit', edit_routine_path(@routine) %> |
+<%= link_to 'Back', routines_path %>
