@@ -8,24 +8,40 @@ class RoutinesController < ApplicationController
 
     @gen = Exercise.pluck(:move, :bodypart, :reps)
     @gen.shuffle!
-    
-    @generatorl = @gen.select { |a, b, c| b == "legs" } # feel b.downcase should work to grab capital :bodyparts, though not working for now
-    @generatorl = @generatorl.first
-  
-    @generatorb = @gen.select { |a, b, c| b == "back" }
-    @generatorb = @generatorb.first
-  
-    @generators = @gen.select { |a, b, c| b == "stomach" }
-    @generators = @generators.first
-  
-    @generatorsh = @gen.select { |a, b, c| b == "shoulders" }
-    @generatorsh = @generatorsh.first
-  
-    @generatorc = @gen.select { |a, b, c| b == "chest" }
-    @generatorc = @generatorc.first
-  
-  @generator = @generatorl, @generatorb, @generators, @generatorsh, @generatorc
+
+    @gen.each do |m, bp, r| 
+      bp.to_s.capitalize!
+    end
+
+    def selector(bp)
+      @gen.select { |a, b, c| b == bp }
+    end
+
+   # @generator = [@generatorl = selector("legs").first, @generatorb = selector("back").first, @generators = selector("stomach").first, @generatorsh = selector("shoulders").first, @generatorc = selector("chest").first]
+   @generator = [selector("Legs").first, selector("Back").first, selector("Core").first, selector("Shoulders").first, selector("Chest").first]
   @generator.shuffle!
+
+
+   # @e = Exercise[:bodypart].each do |
+
+#now superfluous - dried code above
+    #@generatorl = @gen.select { |a, b, c| b == "legs" } # feel b.downcase should work to grab capital :bodyparts, though not working for now
+    #@generatorl = @generatorl.first
+  
+    #@generatorb = @gen.select { |a, b, c| b == "back" }
+    #@generatorb = @generatorb.first
+  
+    #@generators = @gen.select { |a, b, c| b == "stomach" }
+    #@generators = @generators.first
+  
+    #@generatorsh = @gen.select { |a, b, c| b == "shoulders" }
+    #@generatorsh = @generatorsh.first
+  
+    #@generatorc = @gen.select { |a, b, c| b == "chest" }
+    #@generatorc = @generatorc.first
+  
+  #@generator = @generatorl, @generatorb, @generators, @generatorsh, @generatorc
+  #@generator.shuffle!
   end
 
   # GET /routines/1

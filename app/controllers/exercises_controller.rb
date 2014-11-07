@@ -1,10 +1,13 @@
 class ExercisesController < ApplicationController
   before_action :set_exercise, only: [:show, :edit, :update, :destroy]
 
+#framework is working!! need a cleaner way to generate the workouts. also need to capitalize the input of exercises. finally, need to accept 
+#all bodypart params, not just those names currently
+
   # GET /exercises
   # GET /exercises.json
   def index
-    @exercises = Exercise.all
+    @exercises = Exercise.order(:bodypart)
   end
 
   # GET /exercises/1
