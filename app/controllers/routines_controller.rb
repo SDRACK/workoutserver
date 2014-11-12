@@ -4,8 +4,7 @@ class RoutinesController < ApplicationController
   # GET /routines
   # GET /routines.json
   def index
-    @routines = Routine.all
-
+    
     @gen = Exercise.pluck(:move, :bodypart, :reps)
     @gen.shuffle!
 
@@ -18,13 +17,29 @@ class RoutinesController < ApplicationController
       @gen.select { |a, b, c| b == bp }
     end
 
-    def quant(x = 1)
-      first(x)
-    end
+  
+   @generator = Exercise::BODYPART_OPTIONS.map.with_index{ |bp_type, i| selector(bp_type).first }
+   @generator.shuffle!
+   #@arr2.reject! { |arr| arr[1] == 'Core' }
 
+   #throw @arr2
+
+#@bodyparts = ["Full", "Legs", "Back", "Core", "Shoulders", "Chest"]
    # @generator = [@generatorl = selector("legs").first, @generatorb = selector("back").first, @generators = selector("stomach").first, @generatorsh = selector("shoulders").first, @generatorc = selector("chest").first]
-   @generator = [selector("Full").first, selector("Legs").first, selector("Back").first, selector("Core").first, selector("Shoulders").first, selector("Chest").first]
-  @generator.shuffle!
+   #@generator = [selector("Full").first, selector("Legs").first, selector("Back").first, selector("Core").first, selector("Shoulders").first, selector("Chest").first]
+
+
+   #@bodyparts.each do |x|; selector(x).first; end
+
+
+ # def quant(x = 1)
+    #  first(x)
+    #end
+    
+   #
+  
+
+  
 
 
    # @e = Exercise[:bodypart].each do |
@@ -51,57 +66,7 @@ class RoutinesController < ApplicationController
 
   # GET /routines/1
   # GET /routines/1.json
-  def show
-  end
-
-  # GET /routines/new
-  def new
-    @routine = Routine.new
-  end
-
-  # GET /routines/1/edit
-  def edit
-  end
-
-  # POST /routines
-  # POST /routines.json
-  def create
-    @routine = Routine.new(routine_params)
-
-    respond_to do |format|
-      if @routine.save
-        format.html { redirect_to @routine, notice: 'Routine was successfully created.' }
-        format.json { render :show, status: :created, location: @routine }
-      else
-        format.html { render :new }
-        format.json { render json: @routine.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /routines/1
-  # PATCH/PUT /routines/1.json
-  def update
-    respond_to do |format|
-      if @routine.update(routine_params)
-        format.html { redirect_to @routine, notice: 'Routine was successfully updated.' }
-        format.json { render :show, status: :ok, location: @routine }
-      else
-        format.html { render :edit }
-        format.json { render json: @routine.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /routines/1
-  # DELETE /routines/1.json
-  def destroy
-    @routine.destroy
-    respond_to do |format|
-      format.html { redirect_to routines_url, notice: 'Routine was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.

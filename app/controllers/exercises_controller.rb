@@ -11,9 +11,38 @@ class ExercisesController < ApplicationController
   # GET /exercises
   # GET /exercises.json
   def index
-    @exercises = Exercise.order(:bodypart)
+
+    
+    #if params[:bodypart_selector]
+     # @exercises = Exercise.order(params[:bodypart_selector].to_sym)
+
+    #else
+      @exercises = Exercise.order(:bodypart)
+    #end
+
+    def sorter(bp)
+      Exercise.where(bodypart: bp).all
+    end
+
+    @legs = sorter('legs')
+    @back = sorter('back')
+    @chest = sorter('chest')
+    @shoulders = sorter('shoulders')
+    @full = sorter('full')
+    @core = sorter('core')
+     # where(bodypart: 'Legs') #wanna drop params into here using something entered in the index page
   end
 
+
+
+#suggested way to get params working for @bodypart, though it fails in config routes
+#def bp
+#end
+
+#def pick_bp
+#  bp = params[:bp]
+#end
+   
   # GET /exercises/1
   # GET /exercises/1.json
   def show
@@ -24,9 +53,9 @@ class ExercisesController < ApplicationController
     @exercise = Exercise.new
   end
 
-  def body_parts_array
-    Exercise.all.map {|ex| [ex.bodypart, ex.id] }
-  end
+  #def body_parts_array
+   # Exercise.all.map {|ex| [ex.bodypart, ex.id] }
+  #end
 
   # GET /exercises/1/edit
   def edit
@@ -86,5 +115,6 @@ class ExercisesController < ApplicationController
     def exercise_params
       params.require(:exercise).permit(:move, :bodypart, :reps, :description)
     end
-  
+
+    
 end

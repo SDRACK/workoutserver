@@ -20,7 +20,7 @@
         <td><%= exercise.bodypart.titleize %></td>
         <td><%= exercise.reps %></td>
         <% if exercise.description != nil %><td>-</td><% else %><td><%= exercise.description %></td><% end %> 
-        <td><%= link_to 'Show', exercise %></td>
+        <td><!--<a href='/exercises/<#%= exercise[:id] %>'>show 2</a>--><%= link_to 'Show', exercise %></td>
         <td><%= link_to 'Edit', edit_exercise_path(exercise) %></td>
         <td><%= link_to 'Destroy', exercise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -31,3 +31,28 @@
 <br>
 
 
+<!--<% form_tag '/exercises/pick_bp' do %>
+    <%= select_tag 'bodypart_selector', options_for_select(Exercise::BODYPART_OPTIONS), prompt: "Select a bodypart" %>
+      <%= submit_tag 'Submit' %>
+<% end %>
+
+
+
+<!--   <div class="field">
+    <= f.label 'bp' ><br>
+    <= f.select 'bp', Exercise::BODYPART_OPTIONS, prompt: "Select a bodypart" >
+  </div>
+< end > 
+
+
+
+
+
+
+<#%= form_tag exercises_path, class: 'bodypart_selector', method: 'get' do %>
+      <#%= select_tag 'bodypart_selector', options_for_select(Exercise::BODYPART_OPTIONS), prompt: "Select a bodypart" %>
+      <#%= submit_tag 'submit' %>
+<#% end %>
+
+
+     <#%= @legs.inspect %> -->
