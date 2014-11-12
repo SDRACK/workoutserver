@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :routines
+  resources :routines, :exercises
 
-  resources :exercises
+  get '/generator' => 'exercises#generator'
 
  # -attempt to get the param selector for bp workouts map.resources :exercises, :collection=>{:bp => :get, :pick_bp => :post}
 

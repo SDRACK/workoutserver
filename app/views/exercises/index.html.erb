@@ -1,6 +1,6 @@
 <h1>Listing exercises</h1>
 <br>
-<%= link_to 'New Exercise', new_exercise_path %><div> </div><%= link_to 'Generate Workout', routines_path %>
+<%= link_to 'New Exercise', new_exercise_path %><div> </div><%= link_to 'Generate Workout', generator_path %>
 <br>
 <table>
   <thead>
@@ -49,6 +49,7 @@
 
 
 
+#could this be 'form_for' and then an instance variable in index?
 <#%= form_tag exercises_path, class: 'bodypart_selector', method: 'get' do %>
       <#%= select_tag 'bodypart_selector', options_for_select(Exercise::BODYPART_OPTIONS), prompt: "Select a bodypart" %>
       <#%= submit_tag 'submit' %>

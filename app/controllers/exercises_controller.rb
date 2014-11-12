@@ -33,7 +33,23 @@ class ExercisesController < ApplicationController
      # where(bodypart: 'Legs') #wanna drop params into here using something entered in the index page
   end
 
+  def generator
 
+    @gen = Exercise.pluck(:move, :bodypart, :reps)
+    @gen.shuffle!
+
+    #superfluous with list for bodypart - might need to come back if I do away with that *edit* seems I do need it, probs for the to_s
+    @gen.each do |m, bp, r| 
+      bp.to_s.capitalize!
+    end
+
+    def selector(bp)
+      @gen.select { |a, b, c| b == bp }
+    end
+
+   @generator = Exercise::BODYPART_OPTIONS.map.with_index{ |bp_type, i| selector(bp_type).first }
+   @generator.shuffle!
+  end
 
 #suggested way to get params working for @bodypart, though it fails in config routes
 #def bp
