@@ -18,38 +18,47 @@ class ExercisesController < ApplicationController
 
     #else
       @exercises = Exercise.order(:bodypart)
+      #test for fixing bodypart ex pages: @exercisetest = Exercise.pluck(:bodypart)
     #end
 
-    def sorter(bp)
-      Exercise.where(bodypart: bp).all
-    end
-
-    @legs = sorter('legs')
-    @back = sorter('back')
-    @chest = sorter('chest')
-    @shoulders = sorter('shoulders')
-    @full = sorter('full')
-    @core = sorter('core')
+    
      # where(bodypart: 'Legs') #wanna drop params into here using something entered in the index page
   end
 
   def generator
 
-    @gen = Exercise.pluck(:move, :bodypart, :reps)
+    @gen = Exercise.pluck(:move, :bodypart, :reps, :description)
     @gen.shuffle!
 
-    #superfluous with list for bodypart - might need to come back if I do away with that *edit* seems I do need it, probs for the to_s
-    @gen.each do |m, bp, r| 
-      bp.to_s.capitalize!
+    @gen.each do |m, bp, r, d| 
+    bp.to_s.capitalize!
     end
 
     def selector(bp)
-      @gen.select { |a, b, c| b == bp }
+      @gen.select { |a, b, c, d| b == bp }
     end
 
    @generator = Exercise::BODYPART_OPTIONS.map.with_index{ |bp_type, i| selector(bp_type).first }
    @generator.shuffle!
   end
+
+  def bodypart
+    
+    def sorter(*bp)
+      Exercise.where(bodypart: bp).all
+    end
+
+    #@bodypart = Exercise.where(:bodypart[params[:bodypart]]) - can't get this working
+    # dropped the caps / non caps version as a fix for not all Back exercises showing - fix this elsewhere or leave?
+    @legs = sorter('legs', 'Legs')
+    @back = sorter('back', 'Back')
+    @chest = sorter('chest', 'Chest')
+    @shoulders = sorter('Shoulders', 'shoulders')
+    @full = sorter('full', 'Full')
+    @core = sorter('core', 'Core')
+
+  end
+
 
 #suggested way to get params working for @bodypart, though it fails in config routes
 #def bp

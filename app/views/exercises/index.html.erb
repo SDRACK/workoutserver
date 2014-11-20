@@ -1,7 +1,12 @@
-<h1>Listing exercises</h1>
+<!--<h1>Exercise Database</h1>
+
+#<%= link_to 'New Exercise', new_exercise_path %><div> </div><%= link_to 'Generate Workout', generator_path %>
 <br>
-<%= link_to 'New Exercise', new_exercise_path %><div> </div><%= link_to 'Generate Workout', generator_path %>
+#<% Exercise::BODYPART_OPTIONS.each do |x| %>
+#  <%= link_to x, "generator/#{x.downcase}" %>
+#<% end %>
 <br>
+<h4>All Exercises</h4>
 <table>
   <thead>
     <tr>
@@ -14,27 +19,27 @@
   </thead>
 
   <tbody>
-    <% @exercises.each do |exercise| %>
+ #   <% @exercises.each do |exercise| %>
       <tr>
-        <td><%= exercise.move.titleize %></td>
-        <td><%= exercise.bodypart.titleize %></td>
-        <td><%= exercise.reps %></td>
-        <% if exercise.description != nil %><td>-</td><% else %><td><%= exercise.description %></td><% end %> 
-        <td><!--<a href='/exercises/<#%= exercise[:id] %>'>show 2</a>--><%= link_to 'Show', exercise %></td>
-        <td><%= link_to 'Edit', edit_exercise_path(exercise) %></td>
-        <td><%= link_to 'Destroy', exercise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+ #       <td><%= exercise.move.titleize %></td>
+ #       <td><%= exercise.bodypart.titleize %></td>
+ #       <td><%= exercise.reps %></td>
+ #       <% if exercise.description == nil %><td>-</td><% else %><td><%= exercise.description %></td><% end %> 
+ #       <td><!--<a href='/exercises/<#%= exercise[:id] %>'>show 2</a>--><!--<%= link_to 'Show', exercise %></td>-->
+        <!--<td><%= link_to 'Edit', edit_exercise_path(exercise) %></td>
+ #       <td><%= link_to 'Destroy', exercise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
+ #   <% end %>
   </tbody>
 </table>
 
-<br>
+<br>-->
 
 
-<!--<% form_tag '/exercises/pick_bp' do %>
-    <%= select_tag 'bodypart_selector', options_for_select(Exercise::BODYPART_OPTIONS), prompt: "Select a bodypart" %>
-      <%= submit_tag 'Submit' %>
-<% end %>
+<!--<#% form_tag '/exercises/pick_bp' do %>
+#    <#%= select_tag 'bodypart_selector', options_for_select(Exercise::BODYPART_OPTIONS), prompt: "Select a bodypart" %>
+#      <#%= submit_tag 'Submit' %>
+#<#% end %>
 
 
 
@@ -57,3 +62,193 @@
 
 
      <#%= @legs.inspect %> -->
+
+     <!DOCTYPE HTML>
+<!--
+  Synchronous by TEMPLATED
+    templated.co @templatedco
+    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+  <head>
+    <title>Bodyweight Workout Generator</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+    <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/skel.min.js"></script>
+    <script src="js/skel-panels.min.js"></script>
+    <script src="js/init.js"></script>
+    <noscript>
+      <link rel="stylesheet" href="css/skel-noscript.css" />
+      <link rel="stylesheet" href="css/style.css" />
+    </noscript>
+    <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+  </head>
+  <body class="homepage">
+    <div id="wrapper">
+      
+      <!-- Header -->
+      <div id="header">
+        <div class="container"> 
+          
+          <!-- Logo -->
+          <div id="logo">
+            
+            <!--<img src="http://m.c.lnkd.licdn.com/mpr/pub/image-0Z7TxprJw30VZVSjuRqsPvR0G0UfOJLLRUWSE2vHGrdBBDnH0Z7SBNcJGki4vG9jijfT/steve-rackham.jpg" />-->
+            <h1>Bodyweight Workout Generator</h1>
+            <span>Programmed by Steve Rackham</span>
+          </div>
+          
+          <!-- Nav -->
+          <!--<nav id="nav">
+            <ul>
+              <li class="active"><a href="index.html">Homepage</a></li>
+              <li><a href="threecolumn.html">Three Column</a></li>
+              <li><a href="twocolumn1.html">Left Sidebar</a></li>
+              <li><a href="twocolumn2.html">Right Sidebar</a></li>
+              <li><a href="onecolumn.html">No Sidebar</a></li>
+            </ul>
+          </nav>-->
+        </div>
+      </div>
+      <!-- /Header -->
+      
+      <div id="page">
+        <div class="container">
+          <div class="row">
+            <div class="3u">
+              <section id="sidebar1">
+                <header>
+                  <h2>Introduction</h2>
+                </header>
+                <ul class="style3">
+                  <li class="first">
+                    <p>Welcome to Steve Rackham's workout generator.</p>
+                    <p>Click 'Generate Workout, or select a bodypart in the right column, to begin.</p>
+                    <p class="button"><%= link_to 'Generate Workout', generator_path %></p>
+                  </li>
+               
+                </ul>
+              </section>
+            </div>
+            <div class="6u skel-cell-important">
+              <section id="content" >
+                <header>
+                  <h2>All Exercises</h2>
+                </header>
+                <ul class="style3">
+                  <li class="first">
+                <p class="button"><%= link_to 'New Exercise', new_exercise_path %></p>
+                </li>
+               
+                </ul>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Move</th>
+                        <th>Bodypart</th>
+                        <th>Reps</th>
+                        <th>Description</th>
+                        <th colspan="3"></th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <% @exercises.each do |exercise| %>
+                        <tr>
+                          <td><%= exercise.move.titleize %></td>
+                          <td><%= exercise.bodypart.titleize %></td>
+                          <td><%= exercise.reps %></td>
+                          <% if exercise.description == nil %><td>-</td><% else %><td><%= exercise.description %></td><% end %> 
+                          <!--<td><!--<a href='/exercises/<#%= exercise[:id] %>'>show 2</a>--><!--<#%= link_to 'Show', exercise %></td>-->
+                          <td><%= link_to 'Edit', edit_exercise_path(exercise) %></td>
+                          <td><%= link_to 'Delete', exercise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table></p>
+                
+              </section>
+            </div>
+            <div class="3u">
+              <section id="sidebar2">
+                <header>
+                  <h2>Bodypart Workouts</h2>
+                </header>
+                <ul class="style1">
+                  <% Exercise::BODYPART_OPTIONS.each do |x| %>
+                    <li class="button"><span></span><%= link_to x, "generator/#{x.downcase}" %></li>
+                  <% end %>
+                </ul>
+                <!--<a href="#" class="button">Full Article</a>-->
+              </section>
+            </div>
+          </div>
+
+        </div>  
+      </div>
+
+      <!-- Footer -->
+      <div id="footer">
+        <div class="container">
+          <div class="row">
+            <div class="3u">
+              <section id="box1">
+                <header>
+                  <!--<h2>Nulla facilisi</h2>
+                </header>
+                <ul class="style3">
+                  <li class="first">
+                    <p class="date"><a href="#">10.03.2012</a></p>
+                    <p><a href="#">Vestibulum sem magna, elementum ut, vestibulum facilisis. Nulla facilisi. Cum sociis natoque penatibus.</a></p>
+                  </li>
+                  <li>
+                    <p class="date"><a href="#">10.03.2012</a></p>
+                    <p><a href="#">Pellentesque erat erat, tincidunt in, eleifend, malesuada bibendum. Suspendisse sit amet  in eros bibendum condimentum. </a> </p>
+                  </li>
+                </ul>-->
+              </section>
+            </div>
+            <div class="6u">
+              <section id="box2">
+                <header>
+                  <h2>Contact</h2>
+                </header>
+                <div> <!--<a href="#" class="image full"><img src="images/pics02.jpg" alt=""></a>--> </div>
+                <p>Steve Rackham</p>
+                <p>m: 07412610554</p>
+                <p>e: steve.derek.rackham@gmail.com</p>
+              </section>
+            </div>
+            <div class="3u">
+              <section id="box3">
+                <header>
+                  <!--<h2>Gravida ipsum</h2>
+                </header>
+                <ul class="style1">
+                  <li class="first"><a href="#">Pellentesque quis elit non lectus eleifend purus condimentum.</a></li>
+                  <li><a href="#">Lorem ipsum dolort, consectetuer adipiscing dictum metus sapien.</a></li>
+                  <li><a href="#">Phasellus nec dictum metus in sapien pellentesque congue.</a></li>
+                  <li><a href="#">Cras vitae metus aliquam risus dictum metus in sapien pharetra.</a></li>
+                  <li><a href="#">Duis non dictum metus in sapien ante in metus commodo euismod lobortis.</a></li>
+                </ul>-->
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+     <div id="copyright">
+        <div class="container">
+        <!--   Design: <a href="http://templated.co">TEMPLATED</a> Images: <a href="http://unsplash.com">Unsplash</a> (<a href="http://unsplash.com/cc0">CC0</a>)-->
+        </div>
+      </div>
+      
+    </div>
+  </body>
+</html> 
