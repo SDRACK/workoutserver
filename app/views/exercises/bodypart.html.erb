@@ -1,15 +1,35 @@
-<h1>Bodypart Exercises</h1>
 
-<!-- Would like to get this self selecting by params in one command, to match the URL.
-	Can't get this working - partial doesn't help as table doesn't load. Maybe a helper? At the moment, a LOT of code is being repeated -->
-	<!-- or a helper - too tired to work on this now -->
-</div><%= link_to 'Generate Workout', generator_path %></div><div><%= link_to 'Index', exercises_path %></div>
-
-
-
-
-<br>
-<table>
+  <div id="page">
+        <div class="container">
+          <div class="row">
+            <div class="3u">
+              <section id="sidebar1">
+                <header>
+                  <h2>Bodypart Exercises</h2>
+                </header>
+                <ul class="style3">
+                  <li class="first">
+                    <p>Here are all exercises for your selected bodytype.</p>
+                    <p>To generate a workout or return to the index, please use the buttons below.</p>
+                    <ul class="style3">
+                  <li class="first">
+                <p class="button"><%= link_to 'Generate Workout', generator_path %></p>
+                </li>
+                <li class="first">
+                <p class="button"><%= link_to 'Index', exercises_path %></p>
+                </li>
+                </ul>
+                  </li>
+                </ul>
+              </section>
+            </div>
+<div class="6u skel-cell-important">
+              <section id="content" >
+                <header>
+                  <h2></h2>
+                </header>
+                
+                  <table>
   <thead>
     <tr>
       <th>Move</th>
@@ -118,12 +138,28 @@
     <% end %>
    </tbody>
 
-</table>
+</table></p>
+                
+              </section>
 
-<br>
+
+</div>
+            <div class="3u">
+              <section id="sidebar2">
+                <header>
+                  <h2> </h2>
+                </header>
+                
+                <!--<a href="#" class="button">Full Article</a>-->
+              </section>
+            </div>
+          </div>
+
+        </div>  
+      </div>
 
 
-    		
 
-    
-    	
+
+
+

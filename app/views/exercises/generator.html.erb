@@ -1,10 +1,35 @@
-<h1>Listing routines</h1>
 
-
-<br>
-
-
- <table border="1">
+  <div id="page">
+        <div class="container">
+          <div class="row">
+            <div class="3u">
+              <section id="sidebar1">
+                <header>
+                  <h2>Your Workout</h2>
+                </header>
+                <ul class="style3">
+                  <li class="first">
+                    <p>Welcome to your workout.</p>
+                    <p>To refresh or return to the index, please use the buttons below.</p>
+                    <ul class="style3">
+                  <li class="first">
+                <p class="button"><%= link_to 'Refresh Workout', generator_path %></p>
+                </li>
+                <li class="first">
+                <p class="button"><%= link_to 'Index', exercises_path %></p>
+                </li>
+                </ul>
+                  </li>
+                </ul>
+              </section>
+            </div>
+<div class="6u skel-cell-important">
+              <section id="content" >
+                <header>
+                  <h2>Listing routines</h2>
+                </header>
+                
+                  <table border="1">
   <tr>
   <th><%= "Exercise" %></th>
   <th><%= "Body part" %></th>
@@ -16,14 +41,30 @@
     <td> <%= mv.titleize %> </td> 
     <td><i> <%= bp.titleize %> </i></td> 
     <td><i> <%= r %> </i></td> 
-    <% if d != nil %><td> <%= d.capitalize %> <td> <% end %>
+    <% if d != nil %><td> <%= d.capitalize %> </td> <% else %><td>-</td><% end %>
    </tr>
   <% end %>
-</table>
+</table></p>
+                
+              </section>
 
-<%= link_to 'Refresh Workout', generator_path %><div></div><%= link_to 'Index', exercises_path %>
 
-<br>
+</div>
+            <div class="3u">
+              <section id="sidebar2">
+                <header>
+                  <h2> </h2>
+                </header>
+                
+                <!--<a href="#" class="button">Full Article</a>-->
+              </section>
+            </div>
+          </div>
+
+        </div>  
+      </div>
+
+
 
 
 
