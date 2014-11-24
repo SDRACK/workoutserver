@@ -17,8 +17,7 @@
                 </li>
                 <li class="first">
                 <p class="button"><%= link_to 'Index', exercises_path %></p>
-                </li>
-                </ul>
+                
                   </li>
                 </ul>
               </section>
@@ -30,32 +29,30 @@
                 </header>
                 
                   <table border="1">
-  <tr>
-  <th><%= "Exercise" %></th>
-  <th><%= "Body part" %></th>
-  <th><%= "Reps" %></th>
-  <th><%= "Description" %></th>
-  </tr>
-  <% @generator.each do |mv, bp, r, d|  %>
-  <tr>
-    <td> <%= mv.titleize %> </td> 
-    <td><i> <%= bp.titleize %> </i></td> 
-    <td><i> <%= r %> </i></td> 
-    <% if d != nil %><td> <%= d.capitalize %> </td> <% else %><td>-</td><% end %>
-   </tr>
-  <% end %>
-</table></p>
-                
+                      <%= render 'table_header' %>
+                      <% @generator.each do |mv, bp, r, d|  %>
+                      <tr>
+                        <td> <%= mv.titleize %> </td> 
+                        <td><i> <%= bp.titleize %> </i></td> 
+                        <td><i> <%= r %> </i></td> 
+                        <% if d != nil %><td> <%= d.capitalize %> </td> <% else %><td>-</td><% end %>
+                       </tr>
+                      <% end %>
+                    </table></p>
+                                    
               </section>
 
 
 </div>
-            <div class="3u">
+      
+<!-- Partial not working for some reason -->            
+
+
+<div class="3u">
               <section id="sidebar2">
-                <header>
-                  <h2> </h2>
-                </header>
                 
+                <%= render 'bodyparts' %>
+                </ul>
                 <!--<a href="#" class="button">Full Article</a>-->
               </section>
             </div>

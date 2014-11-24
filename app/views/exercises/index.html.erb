@@ -1,3 +1,5 @@
+<!--<#%= render 'bpform' %>
+<#%= render 'bodyparts' %>-->
 <!--<h1>Exercise Database</h1>
 
 #<%= link_to 'New Exercise', new_exercise_path %><div> </div><%= link_to 'Generate Workout', generator_path %>
@@ -78,9 +80,6 @@
                   <li class="first">
                     <p>Welcome to Steve Rackham's workout generator.</p>
                     <p>Click 'Generate Workout, or select a bodypart in the right column, to begin.</p>
-                    <% if notice %>
-                      <p class="notice"><%= notice %></p>
-                    <% end %>
                     <p class="button"><%= link_to 'Generate Workout', generator_path %></p>
                   </li>
                
@@ -91,6 +90,10 @@
               <section id="content" >
                 <header>
                   <h2>All Exercises</h2>
+                  <% if notice %>
+                      <br>
+                      <p class="notice"><%= notice %></p>
+                    <% end %>
                 </header>
                 <ul class="style3">
                   <li class="first">
@@ -98,16 +101,8 @@
                 </li>
                
                 </ul>
-                  <table>
-                    <thead>
-                      <tr>
-                        <th>Move</th>
-                        <th>Bodypart</th>
-                        <th>Reps</th>
-                        <th>Description</th>
-                        <% if admin_signed_in? %><th colspan="3"></th><% end %>
-                      </tr>
-                    </thead>
+                <table>
+                  <%= render 'table_header' %>
 
                     <tbody>
                       <% @exercises.each do |exercise| %>
@@ -128,14 +123,7 @@
             </div>
             <div class="3u">
               <section id="sidebar2">
-                <header>
-                  <h2>Bodypart Workouts</h2>
-                </header>
-                <ul class="style1">
-                  <% Exercise::BODYPART_OPTIONS.each do |x| %>
-                    <li class="button"><span></span><%= link_to x, "generator/#{x.downcase}" %></li>
-                  <% end %>
-                </ul>
+                <%= render 'bodyparts' %>
                 <!--<a href="#" class="button">Full Article</a>-->
               </section>
             </div>

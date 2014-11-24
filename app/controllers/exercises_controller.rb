@@ -1,5 +1,6 @@
 class ExercisesController < ApplicationController
   before_action :set_exercise, only: [:show, :edit, :update, :destroy]
+  #include Enumerable
 
 #framework is working!! need a cleaner way to generate the workouts. also need to capitalize the input of exercises. finally, need to accept 
 #all bodypart params, not just those names currently
@@ -18,6 +19,14 @@ class ExercisesController < ApplicationController
 
     #else
       @exercises = Exercise.order(:bodypart)
+
+      #apparently Enumerable could fix the order problem, though sort_by unrecognized at the moment
+      #sort_by { |ex| ex.bodypart }
+      #def each(&block)
+      #  @members.each(&block)
+      #end
+      
+
       #test for fixing bodypart ex pages: @exercisetest = Exercise.pluck(:bodypart)
     #end
 
@@ -31,14 +40,14 @@ class ExercisesController < ApplicationController
     @gen.shuffle!
 
     @gen.each do |m, bp, r, d| 
-    bp.to_s.capitalize!
+      bp.to_s.capitalize!
     end
 
     def selector(bp)
       @gen.select { |a, b, c, d| b == bp }
     end
 
-   @generator = Exercise::BODYPART_OPTIONS.map.with_index{ |bp_type, i| selector(bp_type).first }
+   @generator = Exercise::BODYPART_OPTIONS.map.with_index{ |bp_type, i| selector(bp_type).first } #don't think I need the 'i' in pipes
    @generator.shuffle!
   end
 

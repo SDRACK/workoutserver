@@ -11,7 +11,17 @@
 /* Basic                                                                         */
 /*********************************************************************************/
 
+		.notice
+			{
+				font-style: italic;
+				text-color: red;
+				text-align: center;
+			}
+
 	body {
+
+			
+
 		margin: 0px;
 		padding: 0px;
 		background: #f3f2ed;
@@ -738,4 +748,9 @@ ul.style3 .first {
 		background: #FFF
 	}	
 
-	
+	.notice
+	{
+		font-style: italic;
+		text-color: red;
+		text-align: center;
+	}

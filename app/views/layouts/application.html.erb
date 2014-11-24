@@ -42,7 +42,7 @@
             <!--<img src="http://m.c.lnkd.licdn.com/mpr/pub/image-0Z7TxprJw30VZVSjuRqsPvR0G0UfOJLLRUWSE2vHGrdBBDnH0Z7SBNcJGki4vG9jijfT/steve-rackham.jpg" />-->
             <h1>Bodyweight Workout Generator</h1>
             <span>Programmed by Steve Rackham</span>
-            <p><% if admin_signed_in? %><%= link_to 'Logout', destroy_admin_session_path, method: :delete %><% else %><%= link_to 'Login', new_admin_session_path %><% end %></p>
+            <p><% if admin_signed_in? %><%= link_to 'Logout', destroy_admin_session_path, method: :delete %><% else %><%= link_to 'Admin', new_admin_session_path %><% end %></p>
           </div>
           
           <!-- Nav -->
@@ -57,6 +57,8 @@
           </nav>-->
         </div>
       </div>
+
+      <!-- would like to drop in more yields, i.e. yield :left_sidebar and content_fors into template, though not working for now. -->
 
       <%= yield %>
 

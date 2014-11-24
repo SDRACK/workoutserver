@@ -1,0 +1,12 @@
+
+                <header>
+                  <h2>Bodypart Workouts</h2>
+                </header>
+                <ul class="style1">
+                  <% Exercise::BODYPART_OPTIONS.each do |x| %>
+                    <!-- gotta update the line below with full URL for launch - currently links to '/generator/generator/bodypart' from the other pages otherwise -->
+                    <li class="button"><span></span><%= link_to x, "http://localhost:3000/generator/#{x.downcase}" %></li>
+                  <% end %>
+                </ul>
+                <!--<a href="#" class="button">Full Article</a>-->
+              
