@@ -10,6 +10,8 @@
                 <ul class="style3">
                   <li class="first">
                     <p>Welcome to your workout.</p>
+                    <p>Work through each exercise in order with no rest, paying careful attention to form.</p>
+                    <p>When finished, take a minute's rest and click refresh to go again... or wrap it up for the day.</p>
                     <p>To refresh or return to the index, please use the buttons below.</p>
                     <ul class="style3">
                   <li class="first">
@@ -35,7 +37,7 @@
                         <td> <%= mv.titleize %> </td> 
                         <td><i> <%= bp.titleize %> </i></td> 
                         <td><i> <%= r %> </i></td> 
-                        <% if d != nil %><td> <%= d.capitalize %> </td> <% else %><td>-</td><% end %>
+                        <% if d.blank? %><td>-</td> <% else %><td> <%= d.capitalize %> </td><% end %>
                        </tr>
                       <% end %>
                     </table></p>

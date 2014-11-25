@@ -79,7 +79,8 @@
                 <ul class="style3">
                   <li class="first">
                     <p>Welcome to Steve Rackham's workout generator.</p>
-                    <p>Click 'Generate Workout, or select a bodypart in the right column, to begin.</p>
+                    <p>All you'll need is a little space and a chin up bar.</p>
+                    <p>Click 'Generate Workout', or select a bodypart in the right column, to begin.</p>
                     <p class="button"><%= link_to 'Generate Workout', generator_path %></p>
                   </li>
                
@@ -110,7 +111,7 @@
                           <td><%= exercise.move.titleize %></td>
                           <td><%= exercise.bodypart.titleize %></td>
                           <td><%= exercise.reps %></td>
-                          <% if exercise.description == nil %><td>-</td><% else %><td><%= exercise.description %></td><% end %> 
+                          <% if exercise.description.blank? %><td>-</td><% else %><td><%= exercise.description %></td><% end %> 
                           <!--<td><!--<a href='/exercises/<#%= exercise[:id] %>'>show 2</a>--><!--<#%= link_to 'Show', exercise %></td>-->
                           <% if admin_signed_in? %><td><%= link_to 'Edit', edit_exercise_path(exercise) %></td>
                           <td><%= link_to 'Delete', exercise, method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>

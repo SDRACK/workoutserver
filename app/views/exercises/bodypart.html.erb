@@ -40,7 +40,7 @@
             <td><%= exercise.move.titleize %></td>
             <td><%= exercise.bodypart.titleize %></td>
             <td><%= exercise.reps %></td>
-            <% if exercise.description == nil %><td>-</td><% else %><td><%= exercise.description %></td><% end %> 
+            <% if exercise.description.blank? %><td>-</td><% else %><td><%= exercise.description %></td><% end %> 
             <% if admin_signed_in? %><td><%= link_to 'Edit', edit_exercise_path(exercise) %></td>
                           <td><%= link_to 'Delete', exercise, method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>
         </tr>
@@ -55,7 +55,7 @@
             <td><%= exercise.move.titleize %></td>
             <td><%= exercise.bodypart.titleize %></td>
             <td><%= exercise.reps %></td>
-            <% if exercise.description == nil %><td>-</td><% else %><td><%= exercise.description %></td><% end %> 
+            <% if exercise.description.blank? %><td>-</td><% else %><td><%= exercise.description %></td><% end %> 
             <% if admin_signed_in? %><td><%= link_to 'Edit', edit_exercise_path(exercise) %></td>
                           <td><%= link_to 'Delete', exercise, method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>
         </tr>
@@ -70,7 +70,7 @@
             <td><%= exercise.move.titleize %></td>
             <td><%= exercise.bodypart.titleize %></td>
             <td><%= exercise.reps %></td>
-            <% if exercise.description == nil %><td>-</td><% else %><td><%= exercise.description %></td><% end %> 
+            <% if exercise.description.blank? %><td>-</td><% else %><td><%= exercise.description %></td><% end %> 
             <% if admin_signed_in? %><td><%= link_to 'Edit', edit_exercise_path(exercise) %></td>
                           <td><%= link_to 'Delete', exercise, method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>
         </tr>
@@ -85,7 +85,7 @@
             <td><%= exercise.move.titleize %></td>
             <td><%= exercise.bodypart.titleize %></td>
             <td><%= exercise.reps %></td>
-            <% if exercise.description == nil %><td>-</td><% else %><td><%= exercise.description %></td><% end %> 
+            <% if exercise.description.blank? %><td>-</td><% else %><td><%= exercise.description %></td><% end %> 
             <% if admin_signed_in? %><td><%= link_to 'Edit', edit_exercise_path(exercise) %></td>
                           <td><%= link_to 'Delete', exercise, method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>
         </tr>
@@ -100,7 +100,7 @@
             <td><%= exercise.move.titleize %></td>
             <td><%= exercise.bodypart.titleize %></td>
             <td><%= exercise.reps %></td>
-            <% if exercise.description == nil %><td>-</td><% else %><td><%= exercise.description %></td><% end %> 
+            <% if exercise.description.blank? %><td>-</td><% else %><td><%= exercise.description %></td><% end %> 
             <% if admin_signed_in? %><td><%= link_to 'Edit', edit_exercise_path(exercise) %></td>
                           <td><%= link_to 'Delete', exercise, method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>
         </tr>
@@ -115,7 +115,7 @@
             <td><%= exercise.move.titleize %></td>
             <td><%= exercise.bodypart.titleize %></td>
             <td><%= exercise.reps %></td>
-            <% if exercise.description == nil %><td>-</td><% else %><td><%= exercise.description %></td><% end %> 
+            <% if exercise.description.blank? %><td>-</td><% else %><td><%= exercise.description %></td><% end %> 
             <% if admin_signed_in? %><td><%= link_to 'Edit', edit_exercise_path(exercise) %></td>
                           <td><%= link_to 'Delete', exercise, method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>
         </tr>
