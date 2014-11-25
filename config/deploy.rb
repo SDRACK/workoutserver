@@ -1,7 +1,7 @@
-lock '3.1.0'
+lock '>=3.1.0'
 # application name and the github repository
-set :application, 'workoutserver
-set :repo_url, 'git@github.com:SDRACK/workout-azure.git'
+set :application, 'workoutserver'
+set :repo_url, 'https://SDRACK:Steve07412rails@github.com/SDRACK/workout-azure.git'
 
 # describe the rbenv environment we are deploying into
 set :rbenv_type, :user
