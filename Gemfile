@@ -42,7 +42,8 @@ gem 'devise'
 
 #for my attempt at deployment:
 # Use Unicorn - like this for windows
-platforms :ruby do gem 'unicorn' end
+#platforms :ruby do gem 'unicorn' end
+gem 'unicorn'
 # Use PostgreSQL
 gem 'pg', group: :production
 
