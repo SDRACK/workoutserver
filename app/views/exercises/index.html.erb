@@ -111,7 +111,8 @@
                           <td><%= exercise.move.titleize %></td>
                           <td><%= exercise.bodypart.titleize %></td>
                           <td><%= exercise.reps %></td>
-                          <% if exercise.description.blank? %><td>-</td><% else %><td><%= exercise.description %></td><% end %> 
+                          <!-- think this is fucking up the sort for index, so removing and popping into controller<#% if exercise.description.blank? %><td>-</td><#% else %><td><%= exercise.description %></td><#% end %> -->
+                          <td><%= exercise.description %></td>
                           <!--<td><!--<a href='/exercises/<#%= exercise[:id] %>'>show 2</a>--><!--<#%= link_to 'Show', exercise %></td>-->
                           <% if admin_signed_in? %><td><%= link_to 'Edit', edit_exercise_path(exercise) %></td>
                           <td><%= link_to 'Delete', exercise, method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>

@@ -37,7 +37,7 @@
                         <td> <%= mv.titleize %> </td> 
                         <td><i> <%= bp.titleize %> </i></td> 
                         <td><i> <%= r %> </i></td> 
-                        <% if d.blank? %><td>-</td> <% else %><td> <%= d.capitalize %> </td><% end %>
+                        <!-- still need this as a temp measure for nil class --><% if d.blank? %><td>-</td> <% else %><td> <%= d.capitalize %> </td> <% end %>
                        </tr>
                       <% end %>
                     </table></p>

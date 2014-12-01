@@ -1,5 +1,6 @@
 class ExercisesController < ApplicationController
   before_action :set_exercise, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_admin!, only: [:index, :bodypart, :generator]
   #include Enumerable
 
 #framework is working!! need a cleaner way to generate the workouts. also need to capitalize the input of exercises. finally, need to accept 
@@ -47,7 +48,7 @@ class ExercisesController < ApplicationController
       @gen.select { |a, b, c, d| b == bp }
     end
 
-   @generator = Exercise::BODYPART_OPTIONS.map.with_index{ |bp_type, i| selector(bp_type).first } #don't think I need the 'i' in pipes
+   @generator = Exercise::BODYPART_OPTIONS.map.with_index{ |bp_type| selector(bp_type).first } #don't think I need the 'i' in pipes - taken out for now and seems to be working
    @generator.shuffle!
   end
 
@@ -99,6 +100,10 @@ class ExercisesController < ApplicationController
   # POST /exercises.json
   def create
     @exercise = Exercise.new(exercise_params)
+
+    if @exercise.description.blank?
+      @exercise.description = '-'
+    end
     
     #if @exercise[exercise_params].is_a? String do |x|
      # x.titleize
