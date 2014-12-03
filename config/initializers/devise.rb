@@ -5,7 +5,8 @@ Devise.setup do |config|
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # config.secret_key = 'ee4e1af7b66c01b62e02ee465bd27ecde136cdd62854a37d5d1c4b4a9e7071d13103467e3ba16cfdf5ae69fc784c5124c812212b3fed15330935354916df7668'
-
+  #**REMOVE THIS** - change to env var
+  config.secret_key = '97e81f210a9ab0c0a9665a8c58deeea830b898903916b0060f91edb3054dedb0225cf86868d2f92d5538a40efdeed3cb11beaa992474bf5d4e13bf5467b44093'
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
@@ -129,7 +130,7 @@ Devise.setup do |config|
   # config.remember_for = 2.weeks
 
   # Invalidates all the remember me tokens when the user signs out.
-  config.expire_all_remember_me_on_sign_out = true
+  config.expire_all_remember_me_on_sign_out = false
 
   # If true, extends the user's remember period when remembered via cookie.
   # config.extend_remember_period = false
