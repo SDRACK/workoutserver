@@ -4,11 +4,11 @@ set :stage, :production
 set :branch, "master"
 # the user login on the remote server
 # used to connect and deploy
-set :deploy_user, "SDRACK"
+set :deploy_user, "sdrack"
 # the 'full name' of the application
 set :full_app_name, "#{fetch(:application)}_#{fetch(:stage)}"
 # the server(s) to deploy to
-server 'workoutserver.cloudapp.net', user: 'SDRACK', roles: %w{web app db}, primary: true
+server 'workoutserver.cloudapp.net', user: 'sdrack', roles: %w{web app db}, primary: true
 # the path to deploy to
 set :deploy_to, "/home/#{fetch(:deploy_user)}/apps/#{fetch(:full_app_name)}"
 # set to production for Rails

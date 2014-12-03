@@ -15,13 +15,13 @@ require 'capistrano/deploy'
 #   https://github.com/capistrano/rails
 #
 # require 'capistrano/rvm'
- require 'capistrano/rbenv'
+require 'capistrano/rbenv'
 # require 'capistrano/chruby'
- require 'capistrano/bundler'
- require 'capistrano/rails/assets'
- require 'capistrano/rails/migrations'
+require 'capistrano/bundler'
+require 'capistrano/rails/assets'
+require 'capistrano/rails/migrations'
 #added the below according to deployment guides
- require 'capistrano/unicorn_nginx'
+require 'capistrano/unicorn_nginx'
 require 'capistrano/postgresql'
 
 # Loads custom tasks from `lib/capistrano/tasks' if you have any defined.
