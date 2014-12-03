@@ -1,5 +1,7 @@
 source 'http://rubygems.org'
 
+#adding as there are probs with deploy due to this being missing in dependencies
+gem 'bcrypt'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
@@ -57,4 +59,4 @@ group :development do
   gem 'capistrano-postgresql', '~> 3.0'
 end
 
-gem 'bcrypt'
+
