@@ -23,6 +23,7 @@ require 'capistrano/rails/migrations'
 #added the below according to deployment guides
 require 'capistrano/unicorn_nginx'
 require 'capistrano/postgresql'
-
+#adding this to try and fix bundle probs on deploy
+require 'capistrano/rvm'
 # Loads custom tasks from `lib/capistrano/tasks' if you have any defined.
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
