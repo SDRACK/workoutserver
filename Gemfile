@@ -45,7 +45,7 @@ gem 'devise'
 #platforms :ruby do gem 'unicorn' end
 gem 'unicorn'
 # Use PostgreSQL
-gem 'pg', group: :production
+gem 'pg'
 
 group :development do
   # Use Capistrano for deployment
