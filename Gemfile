@@ -59,4 +59,7 @@ end
 
 gem 'bundler'
 
+#another attempt at deploy, from  http://stackoverflow.com/questions/22393649/rvm-capistrano-3-and-bundle-fail#
+#gem 'rvm1-capistrano3', :require => false
+
 
