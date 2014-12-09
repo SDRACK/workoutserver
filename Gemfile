@@ -55,7 +55,8 @@ group :development do
   gem 'capistrano-rbenv', '~> 2.0'
   gem 'capistrano-unicorn-nginx', '~> 2.0'
   gem 'capistrano-postgresql', '~> 3.0'
-  gem 'capistrano-rvm'
 end
+
+gem 'bundler'
 
 

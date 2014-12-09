@@ -13,7 +13,7 @@ set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 # during deployment
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 #adding for probs with budle in deploy
-set :default_env, { rvm_bin_path: '~/.rvm/bin' }
+#set :default_env, { rvm_bin_path: '~/.rvm/bin' }
 
 namespace :deploy do
 
