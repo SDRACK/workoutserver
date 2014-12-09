@@ -1,6 +1,7 @@
 lock '>=3.1.0'
 # application name and the github repository
 set :application, 'workoutserver'
+default_run_options[:pty] = true
 set :repo_url, 'https://SDRACK:Steve07412rails@github.com/SDRACK/workout-azure.git' #or git@github.com:SDRACK/workoutserver.git
 
 # describe the rbenv environment we are deploying into
